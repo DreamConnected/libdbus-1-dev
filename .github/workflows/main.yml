@@ -45,7 +45,7 @@ jobs:
         cd dbus-1
         sed -i "s|android-ndk-r27c|$ANDROID_NDK_HOME|g" aarch64-android-api30.txt
         
-        meson setup build -Dprefix=/data/sysroot --cross-file aarch64-android-api30.txt
+        meson setup build -Dprefix=/data/sysroot --cross-file ../aarch64-android-api30.txt
         meson compile -C build
         sudo ninja -C build install
         echo "RELEASE_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
