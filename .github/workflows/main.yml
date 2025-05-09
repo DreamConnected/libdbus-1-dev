@@ -34,10 +34,10 @@ jobs:
 
     - name: Download dbus-1
       run: |
-        version=$(curl -s https://dbus.freedesktop.org/releases/dbus/ | grep dbus- | cut -d'"' -f8 | grep -E 'tar.gz$' | tail -n 1)
-        name=$(basename ${version} .tar.gz)
+        version=$(curl -s https://dbus.freedesktop.org/releases/dbus/ | grep dbus- | cut -d'"' -f8 | grep -E 'tar.xz$' | tail -n 1)
+        name=$(basename ${version} .tar.xz)
         wget https://dbus.freedesktop.org/releases/dbus/${version}
-        tar zxf ${version}
+        tar -xf ${version}
         mv ${name} dbus-1
 
     - name: Build dbus-1
