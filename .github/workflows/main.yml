@@ -36,7 +36,8 @@ jobs:
       run: |
         version=$(curl -s https://dbus.freedesktop.org/releases/dbus/ | grep dbus- | cut -d'"' -f8 | grep -E 'tar.gz$' | tail -n 1)
         wget https://dbus.freedesktop.org/releases/dbus/${version}
-        tar zxf ${version} -C dbus-1
+        tar zxf ${version}
+        mv ${version} dbus-1
 
     - name: Build dbus-1
       run: |
